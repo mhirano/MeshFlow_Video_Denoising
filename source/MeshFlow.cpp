@@ -49,7 +49,7 @@ void MeshFlow::DistributeMotion2MeshVertexes_MedianFilter(){
 		}
 	}
 	
-	vector<vector<float>> motionx,motiony;
+	vector<vector<float> > motionx,motiony;
 	motionx.resize(m_meshheight*m_meshwidth);
 	motiony.resize(m_meshheight*m_meshwidth);
 

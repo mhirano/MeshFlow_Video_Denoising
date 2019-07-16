@@ -4,7 +4,7 @@
 #include <time.h>
 
 
-void main(){
+int main(){
    vector<char*> names;
    vector<char*> outNames;
    
@@ -12,7 +12,7 @@ void main(){
 	   char* name = new char[1024];
 	   char* outname = new char[1024];
 
-	   sprintf(name, "16.avi");
+	   sprintf(name, "../16.avi");
 	   sprintf(outname, "16_out.avi");
 
 	   names.push_back(name);   

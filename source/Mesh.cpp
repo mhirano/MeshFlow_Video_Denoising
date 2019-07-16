@@ -342,7 +342,7 @@ double Mesh::differentFrom( const Mesh &inMesh ) const
 			diff += (tmp1.x-tmp2.x)*(tmp1.x-tmp2.x) + (tmp1.y-tmp2.y)*(tmp1.y-tmp2.y);
 			if (diff > 0.0)
 			{
-				printf("%.12f\n", diff);
+				// printf("%.12f\n", diff);
 			}
 		}
 	}
@@ -703,11 +703,11 @@ void meshWarp_multicore(const cv::Mat src, cv::Mat dst, const Mesh &m1, const Me
 	const int nThreadNum = 6;
 	const int gap = quad1s.size() / nThreadNum;
 	quadWarp(src,dst,quad1s[0],quad2s[0]);
-#pragma omp parallel for
+// #pragma omp parallel for
 	for(int iThread = 0; iThread < nThreadNum; iThread ++)
 	{
-		int begin = __max(0, iThread * gap);
-		int end = __min(quad1s.size(), iThread * gap + gap);
+		int begin = max(0, iThread * gap);
+		int end = min((int)quad1s.size(), iThread * gap + gap);
 
 		for(int i=begin;i<end;i++){
 			quadWarp(src, dst, quad1s[i], quad2s[i]);
